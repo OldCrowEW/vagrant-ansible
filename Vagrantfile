@@ -18,4 +18,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "boxcutter/centos72"
   config.vm.provision "shell",
     inline: $script
+  #Workaround for Vagrant v1.8.5 bug
+  #https://github.com/mitchellh/vagrant/issues/7610
+  config.ssh.insert_key = false
 end
